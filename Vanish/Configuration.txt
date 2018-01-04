@@ -1,0 +1,1 @@
+﻿Data Source=TEC-5350-LA0052\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
