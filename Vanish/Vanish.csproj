@@ -6,6 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Databaselag\" />
+    <Folder Include="Datalag\" />
+    <Folder Include="Modeller\" />
     <Folder Include="Brugerflade\" />
     <Folder Include="IO\" />
   </ItemGroup>
