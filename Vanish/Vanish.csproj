@@ -6,9 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Databaselag\" />
+    <Folder Include="Datalag\" />
     <Folder Include="Modeller\" />
-    <Folder Include="DatabaseLag\" />
-    <Folder Include="DataLag\" />
   </ItemGroup>
 
 </Project>
