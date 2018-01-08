@@ -29,6 +29,31 @@ namespace Vanish.Datalag
             };
         }
 
+        public List<Kunde> hentKunder()
+        {
+            string sql = "select * from kunde";
+            List<Kunde> kundeList = new List<Kunde>();
+            DataTable kundeDataTable = SQL.Select(sql);
+            foreach (DataRow kunde in kundeDataTable.Rows)
+            {
+                kundeList.Add(new Kunde()
+                {
+                    Efternavn = kunde["Efternavn"].ToString(),
+                    Fornavn = kunde["Fornavn"].ToString(),
+                    Email = kunde["Email"].ToString(),
+                    Husnr = Convert.ToInt32(kunde["Husnr"]),
+                    KundeID = Convert.ToInt32(kunde["KundeId"]),
+                    Mobil = kunde["Mobil"].ToString(),
+                    Postnr = Convert.ToInt32(kunde["Postnr"]),
+                    Status = Convert.ToInt32(kunde["Status"]),
+                    Type = Convert.ToInt32(kunde["Type"]),
+                    Vejnavn = kunde["Vejnavn"].ToString()
+                });
+            }
+
+            return kundeList;
+        }
+
         public void opdaterKunde(Kunde k)
         {
             // kan kodes på flere måder - kan gøre det lidt slavisk eller vi kan smide en hel kunde med som parameter til en anden klasse.
