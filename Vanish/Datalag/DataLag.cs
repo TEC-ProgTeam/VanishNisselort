@@ -34,6 +34,7 @@ namespace Vanish.Datalag
             string sql = "update kunde set fornavn = '" + k.Fornavn +
                          "', efternavn='"+k.Efternavn+"',vejnavn='"+k.Vejnavn+"', husnr="+k.Husnr+", postnr="+k.Postnr+", mobil='"+k.Mobil+
                          "', email='"+k.Email+"',type="+k.Type+",status="+k.Status+" where kundeID = "+k.KundeID;
+            SQL.insert(sql);
 
         }
         public void opretKunde(Kunde k)
@@ -74,7 +75,8 @@ namespace Vanish.Datalag
 
         public void opdaterBil(Bil b)
         {
-            //TODO
+            string sql = "update bil set maerke='"+b.Maerke+"', model='"+b.Model+"', aargang="+b.Aargang+",km="+b.Km+" where kundeID = "+b.KundeID;
+            SQL.insert(sql);
         }
 
         public void opretBil(Bil b)
