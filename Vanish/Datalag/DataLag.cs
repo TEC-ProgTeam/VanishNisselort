@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Vanish.Databaselag;
@@ -73,6 +74,25 @@ namespace Vanish.Datalag
             };
         }
 
+        public List<Bil> hentBiler()
+        {
+            string sql = "select * from bil";
+            DataTable bilDataTable = SQL.Select(sql);
+            List<Bil> bilList = new List<Bil>();
+            foreach (DataRow bilData in bilDataTable.Rows)
+            {
+                bilList.Add(new Bil()
+                {
+                    Km = Convert.ToInt32(bilData["Km"]),
+                    KundeID = Convert.ToInt32(bilData["KundeID"]),
+                    Maerke = bilData["Maerke"].ToString(),
+                    Model = bilData["Model"].ToString(),
+                    RegNR = bilData["Regnr"].ToString(),
+                    Aargang = Convert.ToInt32(bilData["Aargang"])
+                });
+            }
+            return bilList;
+        }
         public void opdaterBil(Bil b)
         {
             string sql = "update bil set maerke='"+b.Maerke+"', model='"+b.Model+"', aargang="+b.Aargang+",km="+b.Km+" where kundeID = "+b.KundeID;
@@ -91,6 +111,7 @@ namespace Vanish.Datalag
         // interfaces og LINQ
         public List<Bil> sorterBilEfterAargangInterface()
         {
+
             // skriver lige noget her
             return new List<Bil>();
         }
@@ -100,14 +121,34 @@ namespace Vanish.Datalag
 
 
 
-        public List<Bil> sorterBilEfterAargangLINQ()
+        public List<Bil> sorterBilEfterAargangLINQ(bool sorteringsOrden = true)
         {
+            return sorteringsOrden == true
+                ? (from bil in hentBiler()
+                    orderby bil.Aargang
+                    select bil).ToList()
+                : (from bil in hentBiler()
+                    orderby bil.Aargang descending
+                    select bil).ToList();
+            //List<Bil> bilListSorteret = new List<Bil>();
+            //if (sorteringsOrden == true)
+            //{
+            //    bilListSorteret = (from bil in hentBiler()
+            //        orderby bil.Aargang
+            //        select bil).ToList();
+            //}
+            //else
+            //{
+            //    bilListSorteret = (from bil in hentBiler()
+            //        orderby bil.Aargang descending
+            //        select bil).ToList();
+            //}
 
-            return new List<Bil>();
+            //return bilListSorteret;
         }
-        public List<Bil> sorterBilEfterModelLINQ() { return new List<Bil>(); }
-        public List<Bil> sorterBilEfterMaerkeLINQ() { return new List<Bil>(); }
-        public List<Bil> returnerKundesBilerLINQ() { return new List<Bil>(); }
+        public List<Bil> sorterBilEfterModelLINQ(bool sorteringsOrden = true) { return new List<Bil>(); }
+        public List<Bil> sorterBilEfterMaerkeLINQ(bool sorteringsOrden = true) { return new List<Bil>(); }
+        public List<Bil> returnerKundesBilerLINQ(bool sorteringsOrden = true) { return new List<Bil>(); }
 
         #endregion biler
         // kundeperspektiv
