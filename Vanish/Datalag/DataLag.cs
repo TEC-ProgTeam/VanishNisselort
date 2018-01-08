@@ -134,6 +134,20 @@ namespace Vanish.Datalag
 
         // de sorteringsalgoritmer vi skal skrive kan skrives på 2 måder!!
         // interfaces og LINQ
+        /// <summary>
+        /// INTERFACES
+        /// her kan vi kode det på 3 måder
+        /// 
+        /// 
+        /// 1) 
+        /// 
+        /// 
+        /// 2)
+        /// 
+        /// 
+        /// 3)
+        /// </summary>
+        /// <returns></returns>
         public List<Bil> sorterBilEfterAargangInterface()
         {
 
