@@ -91,7 +91,7 @@ namespace Vanish.Datalag
         // interfaces og LINQ
         public List<Bil> sorterBilEfterAargangInterface()
         {
-
+            // skriver lige noget her
             return new List<Bil>();
         }
         public List<Bil> sorterBilEfterModelInterface() { return new List<Bil>(); }
