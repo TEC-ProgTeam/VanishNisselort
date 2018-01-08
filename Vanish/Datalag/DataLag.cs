@@ -22,6 +22,7 @@ namespace Vanish.Datalag
                 Email = kundeDataTable.Rows[0]["Email"].ToString(),
                 Husnr = Convert.ToInt32(kundeDataTable.Rows[0]["Husnr"].ToString()),
                 Mobil = kundeDataTable.Rows[0]["Mobil"].ToString(),
+                KundeID = Convert.ToInt32(kundeDataTable.Rows[0]["KundeID"]),
                 Postnr = Convert.ToInt32(kundeDataTable.Rows[0]["Postnr"]),
                 Vejnavn = kundeDataTable.Rows[0]["Vejnavn"].ToString()
             };
@@ -30,7 +31,9 @@ namespace Vanish.Datalag
         public void opdaterKunde(Kunde k)
         {
             // kan kodes på flere måder - kan gøre det lidt slavisk eller vi kan smide en hel kunde med som parameter til en anden klasse.
-            string sql ;  // TODO
+            string sql = "update kunde set fornavn = '" + k.Fornavn +
+                         "', efternavn='"+k.Efternavn+"',vejnavn='"+k.Vejnavn+"', husnr="+k.Husnr+", postnr="+k.Postnr+", mobil='"+k.Mobil+
+                         "', email='"+k.Email+"',type="+k.Type+",status="+k.Status+" where kundeID = "+k.KundeID;
 
         }
         public void opretKunde(Kunde k)
