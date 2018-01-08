@@ -146,9 +146,41 @@ namespace Vanish.Datalag
 
             //return bilListSorteret;
         }
-        public List<Bil> sorterBilEfterModelLINQ(bool sorteringsOrden = true) { return new List<Bil>(); }
-        public List<Bil> sorterBilEfterMaerkeLINQ(bool sorteringsOrden = true) { return new List<Bil>(); }
-        public List<Bil> returnerKundesBilerLINQ(bool sorteringsOrden = true) { return new List<Bil>(); }
+
+        public List<Bil> sorterBilEfterModelLINQ(bool sorteringsOrden = true)
+        {
+            return sorteringsOrden == true
+                ? (from bil in hentBiler()
+                    orderby bil.Model
+                    select bil).ToList()
+                : (from bil in hentBiler()
+                    orderby bil.Model descending
+                    select bil).ToList();
+        }
+
+        public List<Bil> sorterBilEfterMaerkeLINQ(bool sorteringsOrden = true)
+        {
+            return sorteringsOrden == true
+                   ? (from bil in hentBiler()
+                    orderby bil.Maerke
+                        select bil).ToList()
+                : (from bil in hentBiler()
+                    orderby bil.Maerke descending 
+                        select bil).ToList();
+        }
+
+        public List<Bil> returnerKundesBilerLINQ(int kundeID, bool sorteringsOrden = true)
+        {
+            return sorteringsOrden == true
+                ? (from bil in hentBiler()
+                    where bil.KundeID == kundeID
+                    orderby bil.Aargang
+                    select bil).ToList()
+                : (from bil in hentBiler()
+                    where bil.KundeID == kundeID
+                    orderby bil.Aargang descending
+                    select bil).ToList();
+        }
 
         #endregion biler
         // kundeperspektiv
