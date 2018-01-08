@@ -69,7 +69,22 @@ namespace Vanish.Modeller
             get { return email; }
             set { email = value; }
         }
-        
+
+        private int type;
+
+        public int Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+        private int status;
+
+        public int Status
+        {
+            get { return status; }
+            set { status = value; }
+        }
 
     }
 }

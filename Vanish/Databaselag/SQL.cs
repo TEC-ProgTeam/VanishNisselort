@@ -10,14 +10,14 @@ namespace Vanish.Databaselag
 {
     public class SQL
     {
-        private string ConnectionStreng = "Data Source=TEC-5350-LA0052\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private static string ConnectionStreng = "Data Source=TEC-5350-LA0052\\SQLEXPRESS;Initial Catalog=AutoDB; Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         // SqlConnection connection = new SqlConnection();
         public void getConnection()
         {
             // her henter jeg en textfil tror jeg - har vi ikke talt om
         }
 
-        public void insert(string sql)
+        public static void insert(string sql)
         {
             using (SqlConnection con = new SqlConnection(ConnectionStreng))
             {
@@ -27,7 +27,7 @@ namespace Vanish.Databaselag
             }
         }
         // using System.Data.SqlClient; dette namespace skal være 4.4.2
-        public DataTable Select(string sql)
+        public static DataTable Select(string sql)
         {
             DataTable table = new DataTable();
             using (SqlConnection con = new SqlConnection(ConnectionStreng))
