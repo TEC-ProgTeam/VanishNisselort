@@ -139,24 +139,49 @@ namespace Vanish.Datalag
         /// her kan vi kode det på 3 måder
         /// 
         /// 
-        /// 1) 
+        /// 1) hver sin klasse og kan så kalde denne 
         /// 
         /// 
-        /// 2)
+        /// 2) En klasse og en constructor og fodre denne med en Enum
         /// 
         /// 
-        /// 3)
+        /// 3) Generisk sammenligningsmetode angiver i new (kan fodre med en delegate)
         /// </summary>
         /// <returns></returns>
         public List<Bil> sorterBilEfterAargangInterface()
         {
-
+            List<Bil> bilList = hentBiler();
+            bilList.Sort(new HelpClassesSorting.SorterBilEfterAargangIcompare());
+           // Array.Sort(bilList, new HelpClassesSorting.SorterBilEfterAargangIcompare());
             // skriver lige noget her
-            return new List<Bil>();
+            return bilList;
         }
-        public List<Bil> sorterBilEfterModelInterface() { return new List<Bil>(); }
-        public List<Bil> sorterBilEfterMaerkeInterface() { return new List<Bil>(); }
-        public List<Bil> returnerKundesBilerInterface() { return new List<Bil>(); }
+
+        public List<Bil> sorterBilEfterModelInterface()
+        {
+            List<Bil> bilList = hentBiler();
+            bilList.Sort(new HelpClassesSorting.sorterBilEfterModelIcompare());
+            return bilList;
+        }
+
+        public List<Bil> sorterBilEfterMaerkeInterface()
+        {
+            List<Bil> bilList = hentBiler();
+            bilList.Sort(new HelpClassesSorting.sorterBilEfterMaerkeICompare());
+            return bilList;
+        }
+
+        public List<Bil> sorterBilEfterAargangInterface1Klasse() { }
+        public List<Bil> sorterBilEfterModelInterface1Klasse() { }
+        public List<Bil> sorterBilEfterMaerkeInterface1Klasse() { }
+
+        //public List<Bil> returnerKundesBilerInterface(int kundeID)
+        //{
+        //    List<Bil> bilList = (from bil in hentBiler()
+        //        where bil.KundeID == kundeID
+        //        select bil).ToList();
+        //    return bilList;
+        //}
 
 
 
