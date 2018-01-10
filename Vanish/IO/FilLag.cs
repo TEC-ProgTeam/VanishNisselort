@@ -48,7 +48,7 @@ namespace Vanish.IO
                 }
                 klisteAntal++;
             }
-            
+
             // This text is added only once to the file.
             if (!File.Exists(path))
             {
@@ -96,6 +96,56 @@ namespace Vanish.IO
                 // Create a file to write to.
                 File.WriteAllText(path, txt.ToString());
             }
+        }
+        /// <summary>
+        /// Læser en csv-fil, og returnerer en liste af kunde objekter,
+        /// der hvor metoden kaldes fra.
+        /// Kan benyttes til at behandle data fra fil og lave insert den vej.
+        /// Mangler at blive tilrettet, så objekt og filnavn indgår i metodekald.
+        /// </summary>
+        /// <returns>List Kunde</returns>
+        public static List<Kunde> LaesFraFil()
+        {
+            //Læse fra en csv-fil en linje ad gangen - sti til fil
+            const string path = @"c:\vanish\MyTestKundeListe.txt";
+            int counter = 0;
+            string line;
+            string[] arrLine;
+
+            //liste, der opbygges og returneres
+            List<Kunde> fraFil = new List<Kunde>();
+
+            // Read the file and display it line by line.  
+            System.IO.StreamReader file = new System.IO.StreamReader(path);
+            while ((line = file.ReadLine()) != null)
+            {
+                arrLine = line.Split(",");
+                System.Console.WriteLine(line);
+                counter++;
+
+                Kunde kk = new Kunde();
+                Type t = kk.GetType();
+
+                // tester p.t. kun for Int32 variable type, alle andre er string
+                for (int i = 0; i < arrLine.Length; i++)
+                {
+                    if (kk.GetType().GetProperties()[i].PropertyType.Name == "Int32")
+                    {
+                        kk.GetType().GetProperties()[i].SetValue(kk, int.Parse(arrLine[i]));
+                    }
+                    else
+                    {
+                        kk.GetType().GetProperties()[i].SetValue(kk, arrLine[i]);
+                    }
+
+                }
+                fraFil.Add((kk));
+            }
+
+            file.Close();
+            System.Console.WriteLine("There were {0} lines.", counter);
+
+            return fraFil;
         }
     }
 }
