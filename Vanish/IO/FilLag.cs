@@ -19,7 +19,7 @@ namespace Vanish.IO
         {
             StringBuilder txt = new StringBuilder();
             int klisteAntal = 1;
-            const string Folder = @"c:\vanish";
+            const string folder = @"c:\vanish";
             const string path = @"c:\test\MyTestKundeListe.txt";
 
             foreach (var kelement in kliste)
@@ -53,7 +53,7 @@ namespace Vanish.IO
             if (!File.Exists(path))
             {
                 // Create a Folder for the file, no problem if it exists
-                Directory.CreateDirectory(Folder);
+                Directory.CreateDirectory(folder);
                 // Create a file to write to.
                 File.WriteAllText(path, txt.ToString());
             }
@@ -72,7 +72,7 @@ namespace Vanish.IO
             int antal = 1;
             Type t = obj.GetType();
             PropertyInfo[] props = t.GetProperties();
-            const string Folder = @"c:\vanish";
+            const string folder = @"c:\vanish";
             const string path = @"c:\vanish\MyTestKunde.txt";
 
             foreach (var prop in props)
@@ -92,7 +92,7 @@ namespace Vanish.IO
             if (!File.Exists(path))
             {
                 // Create a Folder for the file, no problem if it exists
-                Directory.CreateDirectory(Folder);
+                Directory.CreateDirectory(folder);
                 // Create a file to write to.
                 File.WriteAllText(path, txt.ToString());
             }

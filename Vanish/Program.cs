@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using Vanish.Datalag;
 using Vanish.Modeller;
+using Vanish.IO;
 
 namespace Vanish
 {
