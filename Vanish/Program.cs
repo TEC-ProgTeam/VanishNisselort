@@ -17,7 +17,8 @@ namespace Vanish
             //DataLag
             List<Bil> list = lag.sorterBilEfterAargangLINQ(false);
             list = lag.sorterBilEfterAargangInterface();
-
+            list = lag.sorterBilEfterMaerkeInterface();
+            list = lag.sorterBilEfterModelInterface();
             foreach (var b in list)
             {
                 Console.WriteLine(b.Aargang);

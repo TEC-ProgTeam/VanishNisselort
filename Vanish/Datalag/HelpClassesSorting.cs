@@ -105,5 +105,16 @@ namespace Vanish.Datalag
             }
             
         }
+
+        /// <summary>
+        /// Her skal der være en Generisk klasse. Den skal have en sammenligningsmetode, hvor man angiver hvad den skal sortere
+        /// en metode der har en delegate, som peger på nogle metoder, så kaldet til det er ens
+        /// </summary>
+        /// 
+        //public Delegate SorterDelegate();
+        //public class SorterGeneric()
+        //{
+
+        //}
     }
 }
