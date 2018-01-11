@@ -8,8 +8,9 @@ namespace Vanish.Datalag
 {
     class GenericClass
     {
+        public delegate void GenericDelegate<T>(T item1, T item2);
 
-        public void aa()
+        public void sorterGenerics<T>(GenericDelegate<T> method)
         {
 
             //Kunde k = new Kunde();
@@ -17,7 +18,11 @@ namespace Vanish.Datalag
             ////PropertyInfo[] props = t.GetProperties()[
             //k.GetType().GetProperties()[1].SetValue(k, "bo");
 
+           // Delegate
+
             int tal = 99;
+
+
         }
     }
 }
