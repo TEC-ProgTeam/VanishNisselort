@@ -21,8 +21,8 @@ namespace Vanish
             //{
             //    Console.WriteLine(b.Aargang);
             //}
-            GenericClass gg = new GenericClass();
-            gg.aa();
+            //GenericClass gg = new GenericClass();
+            //gg.aa();
             Console.WriteLine("Hello World!");
             // tester lige klassen!!
             DataLag lag = new DataLag();
