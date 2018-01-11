@@ -171,9 +171,9 @@ namespace Vanish.Datalag
             return bilList;
         }
 
-        public List<Bil> sorterBilEfterAargangInterface1Klasse() { }
-        public List<Bil> sorterBilEfterModelInterface1Klasse() { }
-        public List<Bil> sorterBilEfterMaerkeInterface1Klasse() { }
+        public List<Bil> sorterBilEfterAargangInterface1Klasse() { return new List<Bil>();}
+        public List<Bil> sorterBilEfterModelInterface1Klasse() { return new List<Bil>(); }
+        public List<Bil> sorterBilEfterMaerkeInterface1Klasse() { return new List<Bil>(); }
 
         //public List<Bil> returnerKundesBilerInterface(int kundeID)
         //{
